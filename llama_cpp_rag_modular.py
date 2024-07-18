@@ -14,13 +14,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain_community.llms import LlamaCpp, Ollama
 from langchain_community.chat_models import ChatLlamaCpp, ChatOllama
 from llama_cpp import Llama
-import os
-import getpass
 
-# Set up environment variables for Langsmith tracing
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-if not os.environ.get("LANGCHAIN_API_KEY"):
-    os.environ["LANGCHAIN_API_KEY"] = getpass.getpass()
 
 # Function to load the vectorstore and retriever
 def load_vectorstore_retriever(vecdb_path: str = './vectordb', embed_model: str = 'mxbai-embed-large') -> Chroma:
